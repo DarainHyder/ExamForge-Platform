@@ -1,0 +1,42 @@
+<%@ Master Language="VB" AutoEventWireup="false" CodeFile="Main.master.vb" Inherits="MasterPages_Main" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExamForge - Professional Online Assessment</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Styles/site.css") %>" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar">
+            <a href="<%= ResolveUrl("~/Login.aspx") %>" class="navbar-brand">
+                ExamForge
+            </a>
+            
+            <div class="navbar-menu">
+                <asp:ContentPlaceHolder ID="NavLinks" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+            <div class="navbar-user" runat="server" id="divUser" visible="false">
+                <span class="user-badge">
+                    User: <asp:Label ID="lblUsername" runat="server"></asp:Label> (<asp:Label ID="lblRole" runat="server"></asp:Label>)
+                </span>
+                <asp:LinkButton ID="btnLogout" runat="server" CssClass="btn btn-danger btn-sm" OnClick="btnLogout_Click" CausesValidation="false">Logout</asp:LinkButton>
+            </div>
+        </nav>
+
+        <main>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </main>
+
+        <footer style="text-align: center; padding: 2rem; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 4rem;">
+            &copy; <%= DateTime.Now.Year %> ExamForge - Intelligent Assessment Platform. All rights reserved.
+        </footer>
+    </form>
+</body>
+</html>

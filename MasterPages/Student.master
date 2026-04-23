@@ -1,0 +1,14 @@
+<%@ Master Language="VB" MasterPageFile="~/MasterPages/Main.master" AutoEventWireup="false" CodeFile="Student.master.vb" Inherits="MasterPages_Student" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="NavLinks" runat="server">
+    <a href="<%= ResolveUrl("~/Student/Dashboard.aspx") %>">Quizzes</a>
+    <a href="<%= ResolveUrl("~/Student/MyResults.aspx") %>">My Results</a>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
